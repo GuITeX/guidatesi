@@ -1,0 +1,127 @@
+%------------------------------------------------------------------------------------------
+% Meta-commands for the TeXworks editor
+%
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+
+%% http://tex.stackexchange.com/questions/129993/list-of-symbols-with-glossaries-package-space-between-symbol-and-description
+
+\documentclass{scrreprt}
+
+\usepackage[utf8]{inputenc}
+\usepackage[italian]{babel}
+
+\usepackage{xcolor}
+
+\usepackage{mathtools}
+
+\usepackage[%
+            acronym,%        i nclude a list of acronyms
+            %style=tree,%
+            nopostdot=true,%
+            translate=false,%
+            sort=standard,% def,% standard, use
+            nonumberlist,%  do not display page numbers in nomenclatures
+            toc% print glossaries/nomenclatures in the table of contents
+            ]{glossaries}
+
+\renewcommand*{\glstextformat}[1]{\textcolor{red!30!black}{#1}}
+
+%\usepackage{glossary-longragged}
+%\usepackage{glossary-mcols}
+
+\addto\captionsitalian{%
+   \renewcommand*{\glossaryname}{Glossario}%
+   \renewcommand*{\acronymname}{Acronimi}%
+   \renewcommand*{\entryname}{Notazione}%
+   \renewcommand*{\descriptionname}{Descrizione}%
+   \renewcommand*{\symbolname}{Simbolo}%
+   \renewcommand*{\pagelistname}{Lista di pagine}% Page List
+   \renewcommand*{\glssymbolsgroupname}{Simboli}%
+   \renewcommand*{\glsnumbersgroupname}{Numeri}%
+}
+
+\newglossary[slg]{symbols}{syi}{syg}{Lista dei Simboli}
+
+\renewcommand*{\glspostdescription}{}
+
+\newglossarystyle{mystyle}{%
+  \glossarystyle{list}%
+  \renewcommand*{\glossaryentryfield}[5]{%
+    \item[\glsentryitem{##1}\glstarget{##1}{##2}]%
+       \hspace{1cm}##3\glspostdescription\space ##5}%
+}
+
+\makeglossaries
+
+
+\newglossaryentry{vec:F}{%
+   type=symbols,
+   name={\ensuremath{\boldsymbol{F}}},
+   sort=F,
+   description={vettore forza esterna risultante.}
+}
+
+\newglossaryentry{mass}{%
+   type=symbols,
+   name={\ensuremath{m}},
+   sort=m,%
+   description={massa del velivolo.}
+}
+
+\newglossaryentry{rho}{%
+   type=symbols,
+   name={\ensuremath{\rho}},
+   sort=zz:rho,
+   description={densità dell'aria alla quota di volo.}
+}
+
+\newglossaryentry{phi}{%
+   type=symbols,
+   name={\ensuremath{\phi}},
+   sort=zz:phi,
+   description={angolo d'inclinazione laterale delle ali.\glspar
+                Terzo angolo della terna di angoli di Eulero $(\psi,\theta,\phi)$
+                dell'orientamento del velivolo rispetto a un riferimento fisso.}
+}
+
+\newglossaryentry{psi}{%
+   type=symbols,
+   name={\ensuremath{\psi}},
+   sort=zz:psi,
+   description={angolo di azimuth dell'asse velivolo $x_\mathrm{B}$.\glspar
+                Primo angolo della terna di angoli di Eulero $(\psi,\theta,\phi)$
+                dell'orientamento del velivolo rispetto a un riferimento fisso.}
+}
+
+\newglossaryentry{psi:GT}{%
+   type=symbols,
+   name={\ensuremath{\psi_\mathrm{GT}}},
+   sort=zz:psi:GT,
+   description={\textit{ground-track heading}, detto anche angolo di virata $\delta$.\glspar
+                Angolo che la proiezione a terra della velocità $\boldsymbol{V}$ del baricentro del velivolo
+                forma con il Nord.}
+}
+
+
+
+
+\begin{document}
+
+Ecco 
+\gls{vec:F},
+\gls{mass},
+\gls{rho},
+\gls{phi},
+\gls{psi},
+\gls{psi:GT}
+.
+
+\renewcommand*{\glspostdescription}{\smallskip}
+\addtolength{\glsdescwidth}{1.2cm}
+
+\printglossary[
+  style=long,% list, % mystyle,
+  type=symbols, nonumberlist]
+
+\end{document} 

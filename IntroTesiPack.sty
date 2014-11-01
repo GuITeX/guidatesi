@@ -1,0 +1,146 @@
+%---------------------------------------------------------------------------------------
+%
+\usepackage{mathtools}
+\usepackage{empheq}
+
+\usepackage{xfrac}
+
+%\usepackage{paralist}% forse confligge con enumitem della classe guidatematica...
+
+\usepackage{subcaption}
+\usepackage{varioref}
+
+\usepackage{tcolorbox}
+\tcbuselibrary{listingsutf8}
+\tcbuselibrary{breakable}
+
+\lstset{%
+  inputencoding=utf8/latin1,
+  basicstyle=\small\ttfamily,
+  language=[LaTeX]{TeX},
+  commentstyle=\color{green!40!black},
+  showstringspaces=false,
+  keywordstyle=\color{blue}\bfseries,
+  columns=[l]fixed,%flexible, %
+  keepspaces=true,%
+  escapechar=|
+}
+\lstset{%
+    morekeywords={},
+    emph={%
+      tableofcontents,listoffigures,listoftables,%
+      refname,abstractname,bibname%
+    },%
+    emphstyle={%
+          \color{blue}\bfseries%
+    },%
+    emph={[2]%
+      Universita,Facolta,Corso,Titoletto,Titolo,Candidato,Relatore,NRelatore,Correlatore,NCorrelatore,%
+      Annoaccademico,Logo,Dipartimento,%
+      frontmatter,mainmatter,backmatter,appendix,%
+      selectlanguage,addto,captionsitalian,%
+      printindex,indexprologue,%
+      addbibresource,printbibliography,%
+      setmainfont,setmathfont,%
+      includegraphics,graphicspath,resizebox,%
+      adjincludegraphics,%
+      foreignlanguage,%
+      renewpagestyle,widenhead,newpagestyle,sethead,setfoot,headrule,footrule,titleformat,%
+      chapter,%
+      numprint,num,SI,ang,sisetup,%
+      vref,%
+      fancyfoot,fancyhead,fncyfront,fncymain,%
+      color,filleft,filright,colorbox,minsizebox,lapbox,%
+      thechapter,chaptertitlename,titlerule,%
+      diff,eqref%
+    },%
+    emphstyle={[2]%
+          \color{blue!60!black}% {red!80!green!50!blue!25!black}%
+            \sffamily\bfseries%
+    }%
+}
+
+
+\usepackage{adjustbox}
+
+\usepackage{relsize}
+
+\usepackage%
+  {siunitx}
+\sisetup{
+  %load=derived,
+  mode=math,
+  inter-unit-product = {\,}, % unitsep=thin,
+  number-unit-product = {\,}, % valuesep=thin,
+  output-decimal-marker = {,}, % decimalsymbol=comma,% for European convention
+  round-mode = places,
+  exponent-product = {\cdot}, % expproduct = cdot,
+  digitsep=thin,
+  group-separator = {},% ver. 2
+  group-four-digits = false % sepfour=false
+}
+
+\DeclareSIUnit\degree{\ensuremath{^\circ}}
+
+\DeclareSIUnit\inch{in}
+\DeclareSIUnit\foot{ft}
+\DeclareSIUnit\feet{ft}
+
+%----------------------------------------------------------------------------------------
+\newcommand*{\ADMdiff}{\mathop{}\!\mathrm{d}}
+
+\let\ADMpacch\pack
+
+
+\newsavebox{\tbox}
+\newlength{\altezz}
+
+\newcommand{\elencoarg}{}
+\newenvironment{elencopar}[1]
+{% Apertura
+\renewcommand{\elencoarg}{#1} 
+%\noindent
+\begin{lrbox}{\tbox}
+\begin{minipage}[c]{.5\columnwidth}\raggedright
+\begin{itemize}
+}{% Chiusura
+\end{itemize}
+\end{minipage}
+\end{lrbox}\setlength{\altezz}{\dimexpr\ht\tbox + 0.5\itemsep}%
+\noindent\parbox{.5\columnwidth}{\usebox{\tbox}}
+\parbox{.45\columnwidth}{$\left.\rule{0pt}{\altezz}\right\}$ \elencoarg}}
+
+\newenvironment{sistema}
+  {\left\lbrace\begin{array}{@{}l@{}}}
+  {\end{array}\right.}
+
+
+
+\definecolor{bianco}{rgb}{1,1,1}
+\definecolor{grigio}{rgb}{0.8,0.8,0.8}
+
+\lstnewenvironment{comandi}{%
+  \lstset{%
+    backgroundcolor=\color{grigio!50},%
+    xleftmargin=0pt,%
+    language=[LaTeX]TeX,%
+    stepnumber=0,%
+    frame=none,%
+    basicstyle=\ttfamily\scriptsize,%
+    }}{}
+
+
+% \usepackage{framed}
+% \usepackage{chngpage}
+
+\newlength\ese
+\newcommand{\esempio}[1]{
+\setlength\ese{\columnwidth}%
+\addtolength\ese{-2\fboxsep}%
+\null\smallskip\newline\noindent\colorbox{grigio}{%
+\parbox[l]{\ese}{#1}}\smallskip}
+
+\let\ADMcs\cs
+
+\newlength\spazz \spazz=\dimexpr\itemsep+\parsep\relax
+\endinput

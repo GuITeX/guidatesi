@@ -1,0 +1,96 @@
+%------------------------------------------------------------------------------------------
+% Meta-commands for the TeXworks editor
+%
+% !TEX encoding = UTF-8
+% !TEX program = pdflatex
+
+\documentclass{standalone}
+
+\usepackage{adjustbox}
+
+\usepackage{tikz}
+\usetikzlibrary{calc}
+\usetikzlibrary{decorations}
+\usetikzlibrary{positioning,trees,arrows}
+
+
+
+\begin{document}
+
+\tikzset{dot/.style={circle,fill=#1,inner sep=0,minimum size=3pt}}
+
+\begin{tikzpicture}[remember picture]
+
+\node (img) [inner sep=0pt,anchor=west] at (0,0)
+  {
+    \adjincludegraphics[width=12cm,
+      trim={{.10\width} {.50\height} {.13\width} {.12\height}},% lbrt
+      clip]{list_symbols_0.pdf}
+  };
+
+%% Catch some significant points on the borders of the page
+\coordinate (p1) at ($(img.south west)+(-1.0mm,1.5mm)$); % lower left corner
+%\node [dot=red] at (p1) {};
+
+\coordinate (p2) at ($(p1)+(20.0mm,3.0mm)$);
+%\node [dot=red] at (p2) {};
+
+\coordinate (p3) at ($(p2)+(30.0mm,-3.0mm)$);
+%\node [dot=red] at (p3) {};
+
+\coordinate (p4) at ($(p3)+(30.0mm,2.0mm)$);
+%\node [dot=red] at (p4) {};
+
+\coordinate (p5) at ($(p4)+(20.0mm,-2.0mm)$);
+%\node [dot=red] at (p5) {};
+
+\coordinate (p6) at ($(img.south east)+(-1.0mm,5.0mm)$); % lower right corner
+%\node [dot=red] at (p6) {};
+
+%%
+
+%\draw [black,thick] plot [smooth, tension=1] coordinates {(p1) (p2) (p3) (p4) (p5)};
+
+\draw [thick] 
+  (p1) to[out=-10,in=180-10] 
+  (p2) to[out=-10,in=180+10] 
+  (p3) to[out=10,in=180-10] 
+  (p4) to[out=-10,in=180+10] 
+  (p5) to[out=10,in=180]
+  (p6) 
+;
+
+\coordinate (p1a) at ($(img.north west)+(-1.0mm,-1.5mm)$); % lower left corner
+%\node [dot=red] at (p1a) {};
+
+\coordinate (p2a) at ($(p1a)+(20.0mm,3.0mm)$);
+%\node [dot=red] at (p2a) {};
+
+\coordinate (p3a) at ($(p2a)+(30.0mm,-3.0mm)$);
+%\node [dot=red] at (p3a) {};
+
+\coordinate (p4a) at ($(p3a)+(30.0mm,2.0mm)$);
+%\node [dot=red] at (p4a) {};
+
+\coordinate (p5a) at ($(p4a)+(20.0mm,-4.0mm)$);
+%\node [dot=red] at (p5a) {};
+
+\coordinate (p6a) at ($(img.north east)+(-1.0mm,-1.0mm)$); % lower right corner
+%\node [dot=red] at (p6a) {};
+
+\draw [thick] 
+  (p1a) to[out=-10,in=180-10] 
+  (p2a) to[out=-10,in=180+10] 
+  (p3a) to[out=10,in=180-10] 
+  (p4a) to[out=-10,in=180-10] 
+  (p5a) to[out=-10,in=180]
+  (p6a) 
+;
+
+\draw [thick] (p1) -- (p1a);
+\draw [thick] (p6) -- (p6a);
+
+\end{tikzpicture}
+
+
+\end{document} 

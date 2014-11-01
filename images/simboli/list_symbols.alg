@@ -1,0 +1,5 @@
+This is makeindex, version 2.15 [TeX Live 2010] (kpathsea + Thai support).
+Scanning style file ./list_symbols.ist.............................done (29 attributes redefined, 0 ignored).
+Scanning input file list_symbols.acn...done (0 entries accepted, 0 rejected).
+Nothing written in list_symbols.acr.
+Transcript written in list_symbols.alg.

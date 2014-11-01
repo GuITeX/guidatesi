@@ -1,0 +1,18 @@
+\glossarysection[\glossarytoctitle]{\glossarytitle}\glossarypreamble
+\begin{theglossary}\glossaryheader
+\glsgroupheading{F}\relax \glsresetentrylist %
+\glossaryentryfield{vec:F}{\glsnamefont{\ensuremath {\boldsymbol {F}}}}{vettore forza esterna risultante.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{M}\relax \glsresetentrylist %
+\glossaryentryfield{mass}{\glsnamefont{\ensuremath {m}}}{massa del velivolo.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}\glsgroupskip
+\glsgroupheading{Z}\relax \glsresetentrylist %
+\glossaryentryfield{phi}{\glsnamefont{\ensuremath {\phi }}}{angolo d'inclinazione laterale delle ali.\glspar Terzo angolo della terna di angoli di Eulero $(\psi ,\theta ,\phi )$ dell'orientamento del velivolo rispetto a un riferimento fisso.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossaryentryfield{psi}{\glsnamefont{\ensuremath {\psi }}}{angolo di azimuth dell'asse velivolo $x_\mathrm {B}$.\glspar Primo angolo della terna di angoli di Eulero $(\psi ,\theta ,\phi )$ dell'orientamento del velivolo rispetto a un riferimento fisso.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossaryentryfield{psi:GT}{\glsnamefont{\ensuremath {\psi _\mathrm {GT}}}}{\textit {ground-track heading}, detto anche angolo di virata $\delta $.\glspar Angolo che la proiezione a terra della velocità $\boldsymbol {V}$ del baricentro del velivolo forma con il Nord.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\glossaryentryfield{rho}{\glsnamefont{\ensuremath {\rho }}}{densità dell'aria alla quota di volo.}{\relax }{\glossaryentrynumbers{\relax 
+		\setentrycounter[]{page}\glsnumberformat{1}}}%
+\end{theglossary}\glossarypostamble
